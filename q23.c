@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main(void) {
+    int T;
+    scanf("%d", &T);
+    
+    while (T--) {
+        int green_cost, purple_cost;
+        scanf("%d %d", &green_cost, &purple_cost);
+        
+        int n;
+        scanf("%d", &n);
+        
+        int solved_p1 = 0;
+        int solved_p2 = 0;
+        
+        for (int i = 0; i < n; i++) {
+            int p1, p2;
+            scanf("%d %d", &p1, &p2);
+            solved_p1 += p1;
+            solved_p2 += p2;
+        }
+        
+        int cost1 = (solved_p1 * green_cost) + (solved_p2 * purple_cost);
+        int cost2 = (solved_p1 * purple_cost) + (solved_p2 * green_cost);
+        
+        if (cost1 < cost2) {
+            printf("%d\n", cost1);
+        } else {
+            printf("%d\n", cost2);
+        }
+    }
+    
+    return 0;
+}
